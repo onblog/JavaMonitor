@@ -64,17 +64,18 @@ monitor.cron=0 0 0 1 * ?
 monitor.cron=0 0 0 1 1 ? *
 ```
 
-## 6.技术栈
+## 7.技术栈
 
 - Spring Boot 2.0
 - Spring data jpa
 - spring boot websocket
 - H2 (DataBase)
+- Quartz
 - lombok
 - Thymeleaf
 - ECharts 3
 
-## 7.关于作者
+## 8.关于作者
 
 *博客：[https://yueshutong.cnblogs.com/](https://yueshutong.cnblogs.com/)*
 
