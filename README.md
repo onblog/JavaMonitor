@@ -25,6 +25,12 @@ java -jar java_monitor-0.0.1-SNAPSHOT.jar
 
 ![](./picture/1001.png)
 
+![](./picture/1002.png)
+
+![](./picture/1003.png)
+
+![](./picture/1004.png)
+
 ## 5.自定义端口
 
 在执行jar包时追加参数
