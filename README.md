@@ -40,6 +40,30 @@ java -jar java_monitor-0.0.1-SNAPSHOT.jar
 ```
 --server.port=9999
 ```
+
+## 6.自定义监控周期
+
+默认监控频率为60秒，并且只记录当天产生的监控数据。
+
+如果需要自定义监控频率与监控时长，只需要在jar包所在目录下新建application.properties文件，修改下列字段即可
+
+```
+monitor.rate=60 #监控频率/秒
+monitor.cron=0 0 0 * * ? #每日的0:00:00时刻清空数据
+```
+
+连续监控1个月，示例
+
+```
+monitor.cron=0 0 0 1 * ?
+```
+
+连续监控1年，示例
+
+```
+monitor.cron=0 0 0 1 1 ? *
+```
+
 ## 6.技术栈
 
 - Spring Boot 2.0
