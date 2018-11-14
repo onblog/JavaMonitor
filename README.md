@@ -52,6 +52,6 @@ java -jar java_monitor-0.0.1-SNAPSHOT.jar
 
 *博客：[https://yueshutong.cnblogs.com/](https://yueshutong.cnblogs.com/)*
 
-*Github：[https://github.com/yueshutong](https://github.com/yueshutong)*
+*Github：[https://github.com/yueshutong/JavaMonitor](https://github.com/yueshutong/JavaMonitor)*
 
-*Gitee：[https://gitee.com/zyzpp](https://gitee.com/zyzpp)*
+*Gitee：[https://gitee.com/zyzpp/JavaMonitor](https://gitee.com/zyzpp/JavaMonitor)*
