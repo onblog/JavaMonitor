@@ -23,10 +23,21 @@
             <ul class="layui-nav layui-nav-tree"  lay-filter="test">
                 <li class="layui-nav-item"><a onclick="index()" href="javascript:void(0)"><i class="layui-icon">&#xe68e;</i>&nbsp;首页</a></li>
                 <li class="layui-nav-item layui-nav-itemed">
-                    <a class="" href="javascript:void(0)"><i class="layui-icon">&#xe7ae;</i>&nbsp;进程</a>
+                    <a class="" href="javascript:void(0)"><i class="layui-icon">&#xe665;</i>&nbsp;进程</a>
                     <dl class="layui-nav-child" th:each="jps:${jps}">
                         <dd>
                             <a th:onclick="'step('+${jps.getKey()}+')'" href="javascript:void(0)" th:text="${jps.getValue().getSmallName()}">列表</a>
+                        </dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a class="" href="javascript:void(0)"><i class="layui-icon">&#xe60b;</i>&nbsp;关于</a>
+                    <dl class="layui-nav-child">
+                        <dd>
+                            <a onclick="github()" href="javascript:void(0)">Github</a>
+                        </dd>
+                        <dd>
+                            <a onclick="gitee()" href="javascript:void(0)">Gitee</a>
                         </dd>
                     </dl>
                 </li>
@@ -48,6 +59,12 @@
     }
     function index() {
         $("#iframe").attr("src","/main");
+    }
+    function github() {
+        window.open("//github.com/yueshutong/JavaMonitor")
+    }
+    function gitee() {
+        $("#iframe").attr("src","//gitee.com/zyzpp/JavaMonitor");
     }
 </script>
 </body>

@@ -13,21 +13,33 @@
     .layui-card-header {
         color: #444 !important;
     }
+    .rim{
+        color: #444;
+        font-size: 13px;
+    }
+    .title{
+        padding: 1px 5px;
+    }
 </style>
 <body style="background-color: #F2F2F2">
 <div style="padding: 20px;">
 
     <div class="layui-col-md12" style="margin-bottom: 10px">
         <div class="layui-card">
-            <div class="layui-card-header"><i class="layui-icon">&#xe857;</i>&nbsp;堆内存监控
-                <span style="float: right;"><button id="heap_button" class="layui-btn layui-btn-xs layui-btn-normal">快照</button></span>
+            <div class="layui-card-header">
+                <span class="layui-badge layui-bg-green title">堆内存监控</span>
+                <span style="float: right;">
+                    <button id="heap_button" class="layui-btn layui-btn-xs ">快照</button>
+                </span>
             </div>
         </div>
     </div>
 
     <div class="layui-col-md6">
         <div class="layui-card">
-            <div class="layui-card-header">Eden Space</div>
+            <div class="layui-card-header">
+                <span class="layui-badge layui-bg-cyan">Eden Space</span>
+            </div>
             <div class="layui-card-body" id="eden" style="height: 330px">
             </div>
         </div>
@@ -35,7 +47,9 @@
 
     <div class="layui-col-md6">
         <div class="layui-card">
-            <div class="layui-card-header">Survivor Space0</div>
+            <div class="layui-card-header">
+                <span class="layui-badge layui-bg-cyan">Survivor Space0</span>
+            </div>
             <div class="layui-card-body" id="s0" style="height: 330px">
             </div>
         </div>
@@ -43,7 +57,9 @@
 
     <div class="layui-col-md6">
         <div class="layui-card">
-            <div class="layui-card-header">Survivor Space1</div>
+            <div class="layui-card-header">
+                <span class="layui-badge layui-bg-cyan">Survivor Space1</span>
+            </div>
             <div class="layui-card-body" id="s1" style="height: 330px">
             </div>
         </div>
@@ -51,7 +67,9 @@
 
     <div class="layui-col-md6">
         <div class="layui-card">
-            <div class="layui-card-header">老年代</div>
+            <div class="layui-card-header">
+                <span class="layui-badge layui-bg-cyan">老年代</span>
+            </div>
             <div class="layui-card-body" id="old" style="height: 330px">
             </div>
         </div>
@@ -59,13 +77,17 @@
 
     <div class="layui-col-md12" style="margin: 10px 0 10px 0">
         <div class="layui-card">
-            <div class="layui-card-header"><i class="layui-icon">&#xe857;</i>&nbsp;方法区监控</div>
+            <div class="layui-card-header">
+                <span class="layui-badge layui-bg-green title">方法区监控</span>
+            </div>
         </div>
     </div>
 
     <div class="layui-col-md6">
         <div class="layui-card">
-            <div class="layui-card-header">元空间</div>
+            <div class="layui-card-header">
+                <span class="layui-badge layui-bg-cyan">元空间</span>
+            </div>
             <div class="layui-card-body" id="mc" style="height: 330px">
             </div>
         </div>
@@ -73,7 +95,9 @@
 
     <div class="layui-col-md6">
         <div class="layui-card">
-            <div class="layui-card-header">类指针压缩空间</div>
+            <div class="layui-card-header">
+                <span class="layui-badge layui-bg-cyan">类指针压缩空间</span>
+                </div>
             <div class="layui-card-body" id="ccsc" style="height: 330px">
             </div>
         </div>
@@ -81,13 +105,17 @@
 
     <div class="layui-col-md12" style="margin: 10px 0 10px 0">
         <div class="layui-card">
-            <div class="layui-card-header"><i class="layui-icon">&#xe857;</i>&nbsp;GC监控</div>
+            <div class="layui-card-header">
+                <span class="layui-badge layui-bg-green title">GC监控</span>
+            </div>
         </div>
     </div>
 
     <div class="layui-col-md6">
         <div class="layui-card">
-            <div class="layui-card-header">GC次数</div>
+            <div class="layui-card-header">
+                <span class="layui-badge layui-bg-cyan">GC次数</span>
+            </div>
             <div class="layui-card-body" id="gcn" style="height: 330px">
             </div>
         </div>
@@ -95,7 +123,9 @@
 
     <div class="layui-col-md6">
         <div class="layui-card">
-            <div class="layui-card-header">GC耗时</div>
+            <div class="layui-card-header">
+                <span class="layui-badge layui-bg-cyan">GC耗时</span>
+            </div>
             <div class="layui-card-body" id="gct" style="height: 330px">
             </div>
         </div>
@@ -103,13 +133,17 @@
 
     <div class="layui-col-md12" style="margin: 10px 0 10px 0">
         <div class="layui-card">
-            <div class="layui-card-header"><i class="layui-icon">&#xe857;</i>&nbsp;类加载监控</div>
+            <div class="layui-card-header">
+                <span class="layui-badge layui-bg-green title">类加载监控</span>
+            </div>
         </div>
     </div>
 
     <div class="layui-col-md6">
         <div class="layui-card">
-            <div class="layui-card-header">类加载数量</div>
+            <div class="layui-card-header">
+                <span class="layui-badge layui-bg-cyan">类加载数量</span>
+            </div>
             <div class="layui-card-body" id="classn" style="height: 330px">
             </div>
         </div>
@@ -117,7 +151,9 @@
 
     <div class="layui-col-md6">
         <div class="layui-card">
-            <div class="layui-card-header">类加载耗时</div>
+            <div class="layui-card-header">
+                <span class="layui-badge layui-bg-cyan">类加载耗时</span>
+            </div>
             <div class="layui-card-body" id="classt" style="height: 330px">
             </div>
         </div>
@@ -125,13 +161,17 @@
 
     <div class="layui-col-md12" style="margin: 10px 0 10px 0">
         <div class="layui-card">
-            <div class="layui-card-header"><i class="layui-icon">&#xe857;</i>&nbsp;类编译监控</div>
+            <div class="layui-card-header">
+                <span class="layui-badge layui-bg-green title">类编译监控</span>
+            </div>
         </div>
     </div>
 
     <div class="layui-col-md6">
         <div class="layui-card">
-            <div class="layui-card-header">类编译数量</div>
+            <div class="layui-card-header">
+                <span class="layui-badge layui-bg-cyan">类编译数量</span>
+            </div>
             <div class="layui-card-body" id="comn" style="height: 330px">
             </div>
         </div>
@@ -139,7 +179,9 @@
 
     <div class="layui-col-md6">
         <div class="layui-card">
-            <div class="layui-card-header">类编译耗时</div>
+            <div class="layui-card-header">
+                <span class="layui-badge layui-bg-cyan">类编译耗时</span>
+            </div>
             <div class="layui-card-body" id="comt" style="height: 330px">
             </div>
         </div>
@@ -147,15 +189,18 @@
 
     <div class="layui-col-md12" style="margin: 10px 0 10px 0">
         <div class="layui-card">
-            <div class="layui-card-header"><i class="layui-icon">&#xe857;</i>&nbsp;线程监控
-                <span style="float: right;"><button id="thread_button" class="layui-btn layui-btn-xs layui-btn-normal">快照</button></span>
+            <div class="layui-card-header">
+                <span class="layui-badge layui-bg-green title">线程监控</span>
+                <span style="float: right;"><button id="thread_button" class="layui-btn layui-btn-xs ">快照</button></span>
             </div>
         </div>
     </div>
 
     <div class="layui-col-md6">
         <div class="layui-card">
-            <div class="layui-card-header">总数/运行/等待/休眠</div>
+            <div class="layui-card-header">
+                <span class="layui-badge layui-bg-cyan">总数/运行/等待/休眠</span>
+            </div>
             <div class="layui-card-body" id="thread" style="height: 330px">
             </div>
         </div>
