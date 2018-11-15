@@ -66,6 +66,8 @@ monitor.cron=0 0 0 1 * ?
 monitor.cron=0 0 0 1 1 ? *
 ```
 
+不新建文件，使用追加参数的方法也是可以的。
+
 ## 7.技术栈
 
 - Spring Boot 2.0
