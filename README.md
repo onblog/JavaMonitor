@@ -68,7 +68,62 @@ monitor.cron=0 0 0 1 1 ? *
 
 不新建文件，使用追加参数的方法也是可以的。
 
-## 7.技术栈
+## 7.监控参数
+
+监控参数的含义如下：
+
+- S0C：s0（from）的大小（KB）
+
+- S1C：s1（from）的大小（KB）
+
+- S0U：s0（from）已使用的空间（KB）
+
+- S1U：s1(from)已经使用的空间(KB)
+
+- EC：eden区的大小(KB)
+
+- EU：eden区已经使用的空间(KB)
+
+- OC：老年代大小(KB)
+
+- OU：老年代已经使用的空间(KB)
+
+- MC：元空间的大小（Metaspace）
+
+- MU：元空间已使用大小（KB）
+
+- CCSC：压缩类空间大小（compressed class space）
+
+- CCSU：压缩类空间已使用大小（KB）
+
+- YGC：新生代gc次数
+
+- YGCT：新生代gc耗时（秒）
+
+- FGC：Full gc次数
+
+- FGCT：Full gc耗时（秒）
+
+- GCT：gc总耗时（秒）
+
+- Loaded：表示载入了类的数量
+
+- Unloaded 表示卸载类的数量
+
+- Compiled 表示编译任务执行的次数
+
+- Failed表示编译失败的次数
+
+- total：线程总数
+
+- RUNNABLE：正在运行的线程数
+
+- TIMED_WAITING：休眠的线程数
+
+- WAITING：等待的线程数
+
+
+## 8.技术栈
 
 - Spring Boot 2.0
 - Spring data jpa
@@ -79,7 +134,7 @@ monitor.cron=0 0 0 1 1 ? *
 - Thymeleaf
 - ECharts 3
 
-## 8.更新日志
+## 9.更新日志
 
 2018-11-14：正式发布
 
@@ -87,7 +142,7 @@ monitor.cron=0 0 0 1 1 ? *
 
 
 
-## 9.关于作者
+## 10.关于作者
 
 *博客：[https://yueshutong.cnblogs.com/](https://yueshutong.cnblogs.com/)*
 
