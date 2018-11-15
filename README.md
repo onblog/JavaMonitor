@@ -142,6 +142,10 @@ monitor.cron=0 0 0 1 1 ? *
 
 2018-11-15：新增堆快照、线程快照下载
 
+修复下载堆快照找不到文件的bug
+
+数据库文件转储至~/wyDataBase/目录下，Linux为~目录下，Windows目录为C:\Users\Administrator
+
 
 
 ## 10.关于作者
