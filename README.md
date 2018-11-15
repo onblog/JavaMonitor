@@ -77,7 +77,15 @@ monitor.cron=0 0 0 1 1 ? *
 - Thymeleaf
 - ECharts 3
 
-## 8.关于作者
+## 8.更新日志
+
+2018-11-14：正式发布
+
+2018-11-15：新增堆快照、线程快照下载
+
+
+
+## 9.关于作者
 
 *博客：[https://yueshutong.cnblogs.com/](https://yueshutong.cnblogs.com/)*
 
