@@ -19,7 +19,7 @@ WY使用WebSocket建立客户端与服务端通信，客户端耗费流量小，
 下载该 [Jar包](./java_monitor-0.0.2-SNAPSHOT.jar) 直接执行即可
 
 ```
-java -jar java_monitor-0.0.1-SNAPSHOT.jar
+java -jar java_monitor-0.0.x-SNAPSHOT.jar
 ```
 
 
