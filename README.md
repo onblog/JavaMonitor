@@ -14,7 +14,7 @@ WY的使用非常简单，只需要把它扔在你的服务器上执行即可，
 
 ## 3.下载使用
 
-下载该 [Jar包](./java_monitor-0.0.1-SNAPSHOT.jar) 直接执行即可
+下载该 [Jar包](./java_monitor-0.0.2-SNAPSHOT.jar) 直接执行即可
 
 ```
 java -jar java_monitor-0.0.1-SNAPSHOT.jar
