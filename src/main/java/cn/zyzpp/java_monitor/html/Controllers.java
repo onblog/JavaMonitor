@@ -1,7 +1,7 @@
 package cn.zyzpp.java_monitor.html;
 
-import cn.zyzpp.java_monitor.core.command.Javav;
-import cn.zyzpp.java_monitor.core.command.Jps;
+import cn.zyzpp.java_monitor.core.order.Javav;
+import cn.zyzpp.java_monitor.core.order.Jps;
 import cn.zyzpp.java_monitor.core.entity.JpsEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
