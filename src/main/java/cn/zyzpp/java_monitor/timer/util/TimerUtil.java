@@ -6,13 +6,13 @@ import java.util.Date;
 /**
  * Create by yster@foxmail.com 2018/11/14 0014 21:02
  */
-public class Util {
+public class TimerUtil {
     /**
      * 现在时间
      * @return
      */
     public static String time(){
-        SimpleDateFormat format = new SimpleDateFormat("MM/dd hh:mm");
+        SimpleDateFormat format = new SimpleDateFormat("MM/dd HH:mm");
         return format.format(new Date());
     }
 }
