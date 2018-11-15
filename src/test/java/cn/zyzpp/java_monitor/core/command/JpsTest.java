@@ -3,8 +3,12 @@ package cn.zyzpp.java_monitor.core.command;
 import cn.zyzpp.java_monitor.core.entity.JpsEntity;
 import cn.zyzpp.java_monitor.core.entity.JstackEntity;
 import cn.zyzpp.java_monitor.core.entity.KVEntity;
+import cn.zyzpp.java_monitor.core.util.PathUtil;
+import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.*;
 
 public class JpsTest {
@@ -48,6 +52,20 @@ public class JpsTest {
             }
         });
         System.out.println(map.toString());
+    }
+
+    @Test
+    public void test(){
+        String path = PathUtil.getRootPath("dump/");
+        File file = new File(path);
+        if (!file.exists()){
+            return;
+        }
+        try {
+            FileUtils.deleteDirectory(file);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

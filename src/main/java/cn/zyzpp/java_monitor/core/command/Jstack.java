@@ -1,8 +1,14 @@
 package cn.zyzpp.java_monitor.core.command;
 
-import cn.zyzpp.java_monitor.core.entity.JstackEntity;
 import cn.zyzpp.java_monitor.core.cmd.ExecuteCmd;
+import cn.zyzpp.java_monitor.core.entity.JstackEntity;
 import cn.zyzpp.java_monitor.core.util.ArrayUtil;
+import cn.zyzpp.java_monitor.core.util.PathUtil;
+import org.apache.commons.io.FileUtils;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.Charset;
 
 /**
  * Create by yster@foxmail.com 2018/11/10 0010 17:59
@@ -22,5 +28,18 @@ public class Jstack {
         int TIMED_WAITING = ArrayUtil.appearNumber(s,prefix+"TIMED_WAITING");
         int WAITING = ArrayUtil.appearNumber(s,prefix+"WAITING");
         return new JstackEntity(id,total,RUNNABLE,TIMED_WAITING,WAITING);
+    }
+
+    /**
+     * 导出线程快照
+     * @param id
+     * @return
+     */
+    public static String dump(String id) throws IOException {
+        String path = PathUtil.getRootPath("dump/"+id+"_thread.txt");
+        String s = ExecuteCmd.execute(new String[]{"jstack", id});
+        File file = new File(path);
+        FileUtils.write(file,s,Charset.forName("UTF-8"));
+        return path;
     }
 }
