@@ -9,7 +9,7 @@ import cn.zyzpp.java_monitor.core.entity.KVEntity;
 import cn.zyzpp.java_monitor.h2.service.ClassService;
 import cn.zyzpp.java_monitor.h2.service.GcService;
 import cn.zyzpp.java_monitor.h2.service.ThreadService;
-import cn.zyzpp.java_monitor.timer.util.Util;
+import cn.zyzpp.java_monitor.timer.util.TimerUtil;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 import org.slf4j.Logger;
@@ -35,7 +35,7 @@ public class UpdataJob extends QuartzJobBean {
     @Override
     protected void executeInternal(JobExecutionContext jobExecutionContext) throws JobExecutionException {
         logger.debug("Regularly updated data...");
-        String date = Util.time();
+        String date = TimerUtil.time();
         try {
             Map<String, JpsEntity> jps = Jps.jps();
             Object[] s = jps.keySet().toArray();
