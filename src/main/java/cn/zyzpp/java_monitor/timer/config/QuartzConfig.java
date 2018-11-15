@@ -27,7 +27,7 @@ public class QuartzConfig {
 
     @Bean
     public Trigger clearQuartzTrigger(){
-        logger.warn("已加载 monitor.cron: "+cronParm.getCron());
+        logger.warn("monitor.cron: "+cronParm.getCron());
         return TriggerBuilder.newTrigger().forJob(clearQuartzDetail())
                 .withIdentity("clearTrigger") // 定义name/group
                 .startNow()
@@ -45,7 +45,7 @@ public class QuartzConfig {
 
     @Bean
     public Trigger updataQuartzTrigger(){
-        logger.warn("已加载 monitor.rate: "+cronParm.getRate());
+        logger.warn("monitor.rate: "+cronParm.getRate());
         return TriggerBuilder.newTrigger().forJob(updataQuartzDetail())
                 .withIdentity("updataTrigger")
                 .startNow()
