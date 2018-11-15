@@ -1,5 +1,6 @@
 package cn.zyzpp.java_monitor.html;
 
+import cn.zyzpp.java_monitor.core.command.Javav;
 import cn.zyzpp.java_monitor.core.command.Jps;
 import cn.zyzpp.java_monitor.core.entity.JpsEntity;
 import org.springframework.stereotype.Controller;
@@ -25,6 +26,7 @@ public class Controllers {
     public String main(ModelMap model){
         Map<String, JpsEntity> jps = Jps.jps();
         model.addAttribute("jps",jps);
+        model.addAttribute("version",Javav.version());
         return "main";
     }
 

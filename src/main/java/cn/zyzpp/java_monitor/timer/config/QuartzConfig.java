@@ -1,7 +1,7 @@
 package cn.zyzpp.java_monitor.timer.config;
 
-import cn.zyzpp.java_monitor.timer.job.ClearTask;
-import cn.zyzpp.java_monitor.timer.job.UpdataTask;
+import cn.zyzpp.java_monitor.timer.job.ClearJob;
+import cn.zyzpp.java_monitor.timer.job.UpdataJob;
 import cn.zyzpp.java_monitor.timer.parm.CronParm;
 import org.quartz.*;
 import org.slf4j.Logger;
@@ -22,7 +22,7 @@ public class QuartzConfig {
 
     @Bean
     public JobDetail clearQuartzDetail(){
-        return JobBuilder.newJob(ClearTask.class).withIdentity("clearJob").storeDurably().build();
+        return JobBuilder.newJob(ClearJob.class).withIdentity("clearJob").storeDurably().build();
     }
 
     @Bean
@@ -40,7 +40,7 @@ public class QuartzConfig {
 
     @Bean
     public JobDetail updataQuartzDetail(){
-        return JobBuilder.newJob(UpdataTask.class).withIdentity("updataJob").storeDurably().build();
+        return JobBuilder.newJob(UpdataJob.class).withIdentity("updataJob").storeDurably().build();
     }
 
     @Bean
