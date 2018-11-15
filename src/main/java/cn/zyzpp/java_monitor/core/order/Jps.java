@@ -31,6 +31,7 @@ public class Jps {
             //格式化控制台输出
             if (!one[1].substring(0, 1).equals("-")) {
                 String smallName = one[1].contains(".") ? one[1].substring(one[1].lastIndexOf(".")+1) : one[1];
+                smallName = smallName.equalsIgnoreCase("jar")? one[1] : smallName;
                 map.put(one[0], new JpsEntity(one[1], smallName, Arrays.stream(one).skip(2).collect(Collectors.toList())));
             } else {
                 map.put(one[0], new JpsEntity("NULL","NULL", Arrays.stream(one).skip(1).collect(Collectors.toList())));
