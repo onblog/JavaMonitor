@@ -1,5 +1,6 @@
-package cn.zyzpp.java_monitor.core.command;
+package cn.zyzpp.java_monitor.core.order;
 
+import cn.zyzpp.java_monitor.core.entity.JinfoEntity;
 import cn.zyzpp.java_monitor.core.entity.JpsEntity;
 import cn.zyzpp.java_monitor.core.entity.JstackEntity;
 import cn.zyzpp.java_monitor.core.entity.KVEntity;
@@ -66,6 +67,12 @@ public class JpsTest {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @Test
+    public void infoTest(){
+        JinfoEntity info = Jinfo.info("5636");
+        System.out.println(info.toString());
     }
 
 }

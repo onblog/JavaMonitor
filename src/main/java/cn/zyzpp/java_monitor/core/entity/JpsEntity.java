@@ -9,11 +9,11 @@ import java.util.List;
  */
 @Data
 public class JpsEntity {
-    private String className;
-    private String smallName;
-    private List<String> parameters;
+    private String className; //全名
+    private String smallName; //小名
+    private List<String> parameters; //参数
 
-    public JpsEntity(String className,String smallName, List<String> parameters) {
+    public JpsEntity(String className, String smallName, List<String> parameters) {
         this.className = className;
         this.smallName = smallName;
         this.parameters = parameters;

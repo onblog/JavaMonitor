@@ -24,8 +24,7 @@ public class Controllers {
 
     @RequestMapping(value = "/main")
     public String main(ModelMap model){
-        Map<String, JpsEntity> jps = Jps.jps();
-        model.addAttribute("jps",jps);
+        model.addAttribute("jps",Jps.jps());
         model.addAttribute("version",Javav.version());
         return "main";
     }

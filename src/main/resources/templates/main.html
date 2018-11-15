@@ -31,7 +31,7 @@
                 <div class="layui-card-header"><i class="layui-icon">&#xe68e;</i> 首页 / 进程列表
                 <span style="float: right">v1.0</span>
                 </div>
-                <div class="layui-card-body" th:text="${version}">
+                <div class="layui-card-body" style="color: #555;" th:text="${version}">
                 </div>
             </div>
         </div>
@@ -41,7 +41,8 @@
         <div class="layui-colla-item" th:each="jps2:${jps}">
             <h2 class="layui-colla-title" th:text="${jps2.getValue().getClassName()}+' ['+${jps2.getKey()}+']'"></h2>
             <div class="layui-colla-content">
-                <div th:each="parms:${jps2.getValue().getParameters()}"><p th:text="${parms}"></p></div>
+                <p><i>VM Flags:</i></p>
+                <div th:each="parm:${jps2.getValue().getParameters()}"><p th:text="'&nbsp;&nbsp;'+${parm}"></p></div>
             </div>
         </div>
     </div>

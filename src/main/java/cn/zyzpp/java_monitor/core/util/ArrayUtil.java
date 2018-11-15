@@ -17,7 +17,9 @@ public class ArrayUtil {
      * @return news
      */
     public static String[] trim(String[] olds) {
-        assert olds != null && olds.length > 0;
+        if (olds ==null ||olds.length == 0){
+            return olds;
+        }
         List<String> list = new ArrayList<>();
         for (String old : olds) {
             if (old != null && !"".equals(old)) {
