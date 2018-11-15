@@ -1,3 +1,4 @@
+var interval_time = 60000;
 // Socket
 function gc() {
     var socket = new SockJS('/websocket');
@@ -13,11 +14,12 @@ function gc() {
             ccsc(data)
             gcn(data)
             gct(data)
+            setTimeout(function () {
+                stompClient.send("/app/gc", {}, GetQueryString("pid"));
+            }, interval_time);
         });
-    });
-    setInterval(function () {
         stompClient.send("/app/gc", {}, GetQueryString("pid"));
-    }, 1000);
+    });
 }
 
 function cl() {
@@ -30,11 +32,12 @@ function cl() {
             classt(data)
             comn(data)
             comt(data)
+            setTimeout(function () {
+                stompClient.send("/app/cl", {}, GetQueryString("pid"));
+            }, interval_time);
         });
-    });
-    setInterval(function () {
         stompClient.send("/app/cl", {}, GetQueryString("pid"));
-    }, 1000);
+    });
 }
 
 function thread() {
@@ -44,18 +47,21 @@ function thread() {
         stompClient.subscribe('/topic/thread', function (d) {
             var data = JSON.parse(d.body)
             thread(data);
+            setTimeout(function () {
+                stompClient.send("/app/thread", {}, GetQueryString("pid"));
+            }, interval_time);
         });
-    });
-    setInterval(function () {
         stompClient.send("/app/thread", {}, GetQueryString("pid"));
-    }, 1000);
+    });
 }
 //加载层-默认风格
 layer.load();
+
 //链接
 gc()
 cl()
 thread()
+
 //此处演示关闭
 setTimeout(function(){
     layer.closeAll('loading');

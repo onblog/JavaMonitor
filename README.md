@@ -8,7 +8,7 @@ WY适用于监控所有Java应用，具有堆内存监控、方法区监控、GC
 
 WY的使用非常简单，只需要把它扔在你的服务器上执行即可，它会立即检测当前机器上的所有Java应用并进行监控。
 
-WY使用WebSocket建立客户端与服务端通信，客户端耗费流量小，服务器负载低。
+WY使用webSocket建立客户端与服务端通信，降低客户端流量与服务器负载。
 
 ## 2.环境说明
 
@@ -124,17 +124,14 @@ monitor.cron=0 0 0 1 1 ? *
 
 - WAITING：等待的线程数
 
-
 ## 8.技术栈
 
-- Spring Boot 2.0
-- Spring data jpa
-- spring boot websocket
-- H2 (DataBase)
-- Quartz
-- lombok
-- Thymeleaf
-- ECharts 3
+|                       |                 |
+| --------------------- | --------------- |
+| Spring Boot 2.0       | Spring data jpa |
+| spring boot websocket | H2 (DataBase)   |
+| Quartz                | lombok          |
+| Thymeleaf             | ECharts 3       |
 
 ## 9.更新日志
 
@@ -146,6 +143,9 @@ monitor.cron=0 0 0 1 1 ? *
 
 数据库文件转储至~/wyDataBase/目录下，Linux为~目录下，Windows目录为C:\Users\Administrator
 
+解决socket客户端连接bug
+
+重构客户端页面
 
 
 ## 10.关于作者

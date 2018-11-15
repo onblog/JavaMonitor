@@ -27,7 +27,7 @@ public class FileController {
         assert id!=null&&id!="";
         String dump = Jmap.dump(id);
         File file = new File(dump);
-        logger.warn("DownLoad Dump:"+dump);
+        logger.debug("DownLoad Dump:"+dump);
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
         headers.setContentDispositionFormData("attachment", file.getName());
@@ -39,7 +39,7 @@ public class FileController {
         assert id!=null&&id!="";
         String dump = Jstack.dump(id);
         File file = new File(dump);
-        logger.warn("DownLoad Dump:"+dump);
+        logger.debug("DownLoad Dump:"+dump);
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
         headers.setContentDispositionFormData("attachment", file.getName());

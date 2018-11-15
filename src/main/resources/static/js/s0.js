@@ -1,22 +1,29 @@
 function s0(data) {
     var myChart = echarts.init(document.getElementById('s0'));
     myChart.setOption(option = {
+        backgroundColor: background_color,
         title: {
-            subtext: 'KB',
-        },
-        tooltip: {
-            trigger: 'axis'
-        },
-        xAxis: {
-            data: data.map(function (item) {
-                return item.date;
-            })
-        },
-        yAxis: {
-            splitLine: {
-                show: false
+            subtext: '单位/KB',
+            textStyle: {
+                color: '#fff'
             }
         },
+        xAxis: {
+            axisLine: { lineStyle: { color: '#8392A5' } },
+            data: data.map(function (item) {
+                return item.date;
+            }),
+            nameTextStyle: {
+                color: '#fff'
+            }
+        },
+        yAxis: {
+            scale: true,
+            axisLine: { lineStyle: { color: '#8392A5' } },
+            splitLine: { show: false }
+        },
+        tooltip: my_tooltip,
+        toolbox: my_toolbox,
         dataZoom: [{
             startValue: data[0].date
         }, {
@@ -38,15 +45,6 @@ function s0(data) {
                 lineStyle: {
                     color: colors[0]
                 }
-                // markLine: {
-                //     silent: true,
-                //     lineStyle: {
-                //         color: colors[0]
-                //     },
-                //     data: [{
-                //         yAxis: data[0].s0C
-                //     }]
-                // }
             },
             {
                 name: "SOU",
@@ -57,15 +55,6 @@ function s0(data) {
                 lineStyle: {
                     color: colors[1]
                 }
-                // markLine: {
-                //     silent: true,
-                //     lineStyle: {
-                //         color: colors[1]
-                //     },
-                //     data: [{
-                //         yAxis: data[0].s0U
-                //     }]
-                // }
             }]
     });
 }
