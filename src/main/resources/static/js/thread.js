@@ -57,7 +57,7 @@ function thread(data) {
                 }
             },
             {
-                name: "runnable",//（3）
+                name: "Runnable",//（3）
                 type: 'line',
                 data: data.map(function (item) {
                     return item.runnable
@@ -67,7 +67,7 @@ function thread(data) {
                 }
             },
             {
-                name: "Timed_WAITING",//（3）
+                name: "Sleep",//（3）
                 type: 'line',
                 data: data.map(function (item) {
                     return item.timed_WAITING

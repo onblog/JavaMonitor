@@ -126,7 +126,7 @@ monitor.cron=0 0 0 1 1 ? *
 
 ## 8.技术栈
 
-|                       |                 |
+| Maven                 | layui           |
 | --------------------- | --------------- |
 | Spring Boot 2.0       | Spring data jpa |
 | spring boot websocket | H2 (DataBase)   |
@@ -146,6 +146,10 @@ monitor.cron=0 0 0 1 1 ? *
 解决socket客户端连接bug
 
 重构客户端页面
+
+2018-11-16：新增类加载大小监控
+
+新增设置客户端通信频率
 
 
 ## 10.关于作者

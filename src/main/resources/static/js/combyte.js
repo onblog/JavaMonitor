@@ -1,9 +1,9 @@
-function comn(data) {
-    var myChart = echarts.init(document.getElementById('comn'));//（1）
+function combyte(data) {
+    var myChart = echarts.init(document.getElementById('combyte'));//（1）
         myChart.setOption(option = {
             backgroundColor: background_color,
             title: {
-                subtext: '单位/个',
+                subtext: '单位/KB',
                 textStyle: {
                     color: '#fff'
                 }
@@ -38,33 +38,23 @@ function comn(data) {
             }],
             series: [
                 {
-                    name: "Compiled",//（2）
+                    name: "Loaded",//（2）
                     type: 'line',
                     data: data.map(function (item) {
-                        return item.compiled;
+                        return item.bytes1;
                     }),
                     lineStyle: {
                         color: colors[0]
                     }
                 },
                 {
-                    name: "Failed",//（3）
+                    name: "Unloaded",//（3）
                     type: 'line',
                     data: data.map(function (item) {
-                        return item.failed
+                        return item.bytes2
                     }),
                     lineStyle: {
                         color: colors[1]
-                    }
-                },
-                {
-                    name: "Invalid",//（3）
-                    type: 'line',
-                    data: data.map(function (item) {
-                        return item.invalid
-                    }),
-                    lineStyle: {
-                        color: colors[2]
                     }
                 }]
         });

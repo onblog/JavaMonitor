@@ -1,4 +1,5 @@
 var interval_time = 60000;
+
 // Socket
 function gc() {
     var socket = new SockJS('/websocket');
@@ -32,6 +33,7 @@ function cl() {
             classt(data)
             comn(data)
             comt(data)
+            combyte(data)
             setTimeout(function () {
                 stompClient.send("/app/cl", {}, GetQueryString("pid"));
             }, interval_time);
@@ -54,6 +56,7 @@ function thread() {
         stompClient.send("/app/thread", {}, GetQueryString("pid"));
     });
 }
+
 //加载层-默认风格
 layer.load();
 
@@ -63,7 +66,16 @@ cl()
 thread()
 
 //此处演示关闭
-setTimeout(function(){
+setTimeout(function () {
     layer.closeAll('loading');
 }, 2000);
 
+//设置频率
+$("#pinlv").click(function () {
+    //prompt层
+    layer.prompt({title: '请设置图表刷新频率,单位/秒'}, function (pass, index) {
+        layer.close(index);
+        interval_time = pass * 1000;
+        layer.msg('设置成功！刷新频率：' + pass + '秒')
+    });
+});
