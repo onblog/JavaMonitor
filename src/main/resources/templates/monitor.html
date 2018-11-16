@@ -13,16 +13,25 @@
     .layui-card-header {
         color: #444 !important;
     }
-    .rim{
-        color: #444;
-        font-size: 13px;
-    }
-    .title{
+
+    .title {
         padding: 1px 5px;
     }
 </style>
 <body style="background-color: #F2F2F2">
 <div style="padding: 20px;">
+
+    <div class="layui-col-md12" style="margin-bottom: 15px">
+        <div class="layui-card">
+            <div class="layui-card-header">
+                <i class="layui-icon"></i>
+                <span>进程 / 实时监控</span>
+                <span style="float: right;">
+                    <button id="pinlv" class="layui-btn layui-btn-xs">频率</button>
+                </span>
+            </div>
+        </div>
+    </div>
 
     <div class="layui-col-md12" style="margin-bottom: 10px">
         <div class="layui-card">
@@ -97,7 +106,7 @@
         <div class="layui-card">
             <div class="layui-card-header">
                 <span class="layui-badge layui-bg-cyan">类指针压缩空间</span>
-                </div>
+            </div>
             <div class="layui-card-body" id="ccsc" style="height: 330px">
             </div>
         </div>
@@ -159,10 +168,28 @@
         </div>
     </div>
 
-    <div class="layui-col-md12" style="margin: 10px 0 10px 0">
+    <div class="layui-col-md6" style="margin: 10px 0 10px 0">
+        <div class="layui-card">
+            <div class="layui-card-header">
+                <!--<span class="layui-badge layui-bg-green title">类加载监控</span>-->
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-col-md6" style="margin: 10px 0 10px 0">
         <div class="layui-card">
             <div class="layui-card-header">
                 <span class="layui-badge layui-bg-green title">类编译监控</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-col-md6">
+        <div class="layui-card">
+            <div class="layui-card-header">
+                <span class="layui-badge layui-bg-cyan">类加载大小</span>
+            </div>
+            <div class="layui-card-body" id="combyte" style="height: 330px">
             </div>
         </div>
     </div>
@@ -177,21 +204,30 @@
         </div>
     </div>
 
+    <div class="layui-col-md6" style="margin: 10px 0 10px 0">
+        <div class="layui-card">
+            <div class="layui-card-header">
+                <!--<span class="layui-badge layui-bg-green title">类编译监控</span>-->
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-col-md6" style="margin: 10px 0 10px 0">
+        <div class="layui-card">
+            <div class="layui-card-header">
+                <span class="layui-badge layui-bg-green title">线程监控</span>
+                <span style="float: right;"><button id="thread_button"
+                                                    class="layui-btn layui-btn-xs ">快照</button></span>
+            </div>
+        </div>
+    </div>
+
     <div class="layui-col-md6">
         <div class="layui-card">
             <div class="layui-card-header">
                 <span class="layui-badge layui-bg-cyan">类编译耗时</span>
             </div>
             <div class="layui-card-body" id="comt" style="height: 330px">
-            </div>
-        </div>
-    </div>
-
-    <div class="layui-col-md12" style="margin: 10px 0 10px 0">
-        <div class="layui-card">
-            <div class="layui-card-header">
-                <span class="layui-badge layui-bg-green title">线程监控</span>
-                <span style="float: right;"><button id="thread_button" class="layui-btn layui-btn-xs ">快照</button></span>
             </div>
         </div>
     </div>
@@ -227,6 +263,7 @@
 <script src="/js/classt.js"></script>
 <script src="/js/comn.js"></script>
 <script src="/js/comt.js"></script>
+<script src="/js/combyte.js"></script>
 <script src="/js/thread.js"></script>
 </body>
 </html>
