@@ -19,7 +19,7 @@ public class Jinfo {
      * @return
      */
     public static JinfoEntity info(String id){
-        String s = ExecuteCmd.execute(new String[]{"jinfo", "-flags", id});
+        String s = ExecuteCmd.execute(new String[]{"jinfo","-flags", id});
         if (!s.contains("successfully")){
             return null;
         }

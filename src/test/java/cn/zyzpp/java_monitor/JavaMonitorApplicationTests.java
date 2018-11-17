@@ -11,6 +11,7 @@ public class JavaMonitorApplicationTests {
 
     @Test
     public void contextLoads() {
+
     }
 
 }

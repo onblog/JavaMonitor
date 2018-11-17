@@ -67,7 +67,7 @@ function thread(data) {
                 }
             },
             {
-                name: "Sleep",//（3）
+                name: "Sleeping",//（3）
                 type: 'line',
                 data: data.map(function (item) {
                     return item.timed_WAITING
