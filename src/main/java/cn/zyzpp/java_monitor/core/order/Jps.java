@@ -1,6 +1,7 @@
 package cn.zyzpp.java_monitor.core.order;
 
 import cn.zyzpp.java_monitor.core.cmd.ExecuteCmd;
+import cn.zyzpp.java_monitor.core.entity.JinfoEntity;
 import cn.zyzpp.java_monitor.core.entity.JpsEntity;
 
 import java.util.Arrays;
@@ -36,6 +37,10 @@ public class Jps {
             } else {
                 map.put(one[0], new JpsEntity("NULL","NULL", Arrays.stream(one).skip(1).collect(Collectors.toList())));
             }
+            //测试jinfo
+            JinfoEntity info = Jinfo.info(one[0]);
+            System.out.println();
+            System.out.println(info);
         }
         return map;
     }
