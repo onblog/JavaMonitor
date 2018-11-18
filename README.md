@@ -8,22 +8,22 @@ WY适用于监控所有Java应用，具有堆内存监控、方法区监控、GC
 
 WY的使用非常简单，只需要把它扔在你的服务器上执行即可，它会立即检测当前机器上的所有Java应用并进行监控。
 
-WY使用webSocket建立客户端与服务端通信，降低客户端流量与服务器负载。
+WY使用webSocket建立客户端与服务端通信，大大降低了客户端流量与服务器负载。
 
 ## 2.说明
 
-基于Java8开发，低于Java8不支持。
+基于Java8开发，低于Java8不支持
 
 ## 3.下载使用
 
-下载该 [Jar包](./java_monitor-0.0.2-SNAPSHOT.jar) 直接执行即可
+下载项目Jar包直接执行即可
 
 ```
 java -jar java_monitor-0.0.x-SNAPSHOT.jar
 ```
 
 
-启动成功后访问默认端口8888
+启动成功后默认访问端口8888
 
 ## 4.运行界面
 
@@ -110,19 +110,19 @@ monitor.cron=0 0 0 1 1 ? *
 
 - Loaded：表示载入了类的数量
 
-- Unloaded 表示卸载类的数量
+- Unloaded：表示卸载类的数量
 
-- Compiled 表示编译任务执行的次数
+- Compiled：表示编译任务执行的次数
 
-- Failed表示编译失败的次数
+- Failed：表示编译失败的次数
 
-- total：线程总数
+- Total：线程总数
 
-- RUNNABLE：正在运行的线程数
+- Runnable：正在运行的线程数
 
-- TIMED_WAITING：休眠的线程数
+- Sleeping：休眠的线程数
 
-- WAITING：等待的线程数
+- Waiting：等待的线程数
 
 ## 8.技术栈
 
@@ -135,26 +135,32 @@ monitor.cron=0 0 0 1 1 ? *
 
 ## 9.更新日志
 
-2018-11-14：正式发布
+2018-11-14：
 
-2018-11-15：新增堆快照、线程快照下载
+- 正式发布
 
-修复下载堆快照找不到文件的bug
+2018-11-15：
 
-数据库文件转储至~/wyDataBase/目录下，Linux为~目录下，Windows目录为C:\Users\Administrator
+- 新增堆快照、线程快照下载
 
-解决socket客户端连接bug
+- 修复下载堆快照找不到文件的bug
 
-重构客户端页面
+- 数据库文件转储至~/wyDataBase/目录下，Linux为~目录下，Windows目录为C:\Users\Administrator
 
-2018-11-16：新增类加载大小监控
+- 解决socket客户端连接bug
 
-新增设置客户端通信频率
+- 重构客户端页面
+
+2018-11-16：
+
+- 新增类加载大小监控
+
+- 新增设置客户端通信频率
 
 
 ## 10.关于作者
 
-*博客：[https://yueshutong.cnblogs.com/](https://yueshutong.cnblogs.com/)*
+*我的博客：[https://yueshutong.cnblogs.com/](https://yueshutong.cnblogs.com/)*
 
 *Github：[https://github.com/yueshutong/JavaMonitor](https://github.com/yueshutong/JavaMonitor)*
 
