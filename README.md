@@ -165,3 +165,7 @@ monitor.cron=0 0 0 1 1 ? *
 *Github：[https://github.com/yueshutong/JavaMonitor](https://github.com/yueshutong/JavaMonitor)*
 
 *Gitee：[https://gitee.com/zyzpp/JavaMonitor](https://gitee.com/zyzpp/JavaMonitor)*
+
+*我的邮箱：yster@foxmail.com*
+
+作者是一位大三在校生，如果有欣赏的大佬欢迎内推下！
