@@ -160,12 +160,14 @@ monitor.cron=0 0 0 1 1 ? *
 
 ## 10.关于作者
 
-*我的博客：[https://yueshutong.cnblogs.com/](https://yueshutong.cnblogs.com/)*
+*作者博客：[https://yueshutong.cnblogs.com/](https://yueshutong.cnblogs.com/)*
 
 *Github：[https://github.com/yueshutong/JavaMonitor](https://github.com/yueshutong/JavaMonitor)*
 
 *Gitee：[https://gitee.com/zyzpp/JavaMonitor](https://gitee.com/zyzpp/JavaMonitor)*
 
-*我的邮箱：yster@foxmail.com*
+*开源中国：[https://www.oschina.net/p/javamonitor](https://www.oschina.net/p/javamonitor)*
+
+*作者邮箱：yster@foxmail.com*
 
 作者是一位大三在校生，如果有欣赏的大佬欢迎内推下！
