@@ -169,5 +169,3 @@ monitor.cron=0 0 0 1 1 ? *
 *开源中国：[https://www.oschina.net/p/javamonitor](https://www.oschina.net/p/javamonitor)*
 
 *作者邮箱：yster@foxmail.com*
-
-作者是一位大三在校生，如果有欣赏的大佬欢迎内推下！
