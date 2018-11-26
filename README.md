@@ -170,4 +170,4 @@ monitor.cron=0 0 0 1 1 ? *
 
 *作者邮箱：yster@foxmail.com*
 
-本项目使用Apache Licence开源协议，二次开发需署“10.关于作者”一栏
+本项目使用Apache Licence 2.0开源协议，需署“10.关于作者”一栏
