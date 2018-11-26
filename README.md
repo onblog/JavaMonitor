@@ -169,3 +169,5 @@ monitor.cron=0 0 0 1 1 ? *
 *开源中国：[https://www.oschina.net/p/javamonitor](https://www.oschina.net/p/javamonitor)*
 
 *作者邮箱：yster@foxmail.com*
+
+本项目使用Apache Licence开源协议，二次开发需署“10.关于作者”一栏
