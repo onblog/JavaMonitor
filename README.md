@@ -157,6 +157,9 @@ monitor.cron=0 0 0 1 1 ? *
 
 - 新增设置客户端通信频率
 
+2018-11-27：
+- 0.0.5及以后数据库文件转储至~/JMDataBase/目录下
+
 
 ## 10.关于作者
 
@@ -170,4 +173,4 @@ monitor.cron=0 0 0 1 1 ? *
 
 *作者邮箱：yster@foxmail.com*
 
-本项目使用Apache Licence 2.0开源协议，需署“10.关于作者”一栏
+本项目使用Apache Licence 2.0开源协议，需署“关于作者”一栏
