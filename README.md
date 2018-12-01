@@ -83,6 +83,7 @@ spring.datasource.driver-class-name=com.mysql.jdbc.Driver
 spring.datasource.url=jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=false
 spring.datasource.username=root
 spring.datasource.password=123456
+spring.jpa.hibernate.ddl-auto=update
 ```
 
 ## 7.监控参数
