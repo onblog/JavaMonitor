@@ -16,7 +16,9 @@ JM使用webSocket建立客户端与服务端通信，大大降低了客户端流
 
 ## 3.下载使用
 
-下载项目Jar包直接执行即可
+链接：[https://gitee.com/zyzpp/JavaMonitor/releases](https://gitee.com/zyzpp/JavaMonitor/releases)
+
+下载最新版本的Jar包直接执行即可
 
 ```
 java -jar java_monitor-0.0.x-SNAPSHOT.jar
