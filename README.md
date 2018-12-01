@@ -10,7 +10,7 @@ JM的使用非常简单，只需要把它扔在你的服务器上执行即可，
 
 JM使用webSocket建立客户端与服务端通信，大大降低了客户端流量与服务器负载。
 
-## 2.说明
+## 2.环境
 
 基于Java8开发，低于Java8不支持
 
@@ -39,7 +39,7 @@ java -jar java_monitor-0.0.x-SNAPSHOT.jar
 
 ![](./picture/1004.png)
 
-## 5.自定义端口
+## 5.自定义应用端口
 
 在执行jar包时追加参数
 
@@ -71,6 +71,19 @@ monitor.cron=0 0 0 1 1 ? *
 ```
 
 不新建文件，使用追加参数的方法也是可以的。
+
+## 7.使用MySQL
+
+JM内嵌H2数据库，有诸多限制，不过JM提供MySQL数据库的支持。
+
+使用方法很简单，新建application.properties文本文件放在jar包目录下，修改下列参数即可。
+
+```
+spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+spring.datasource.url=jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=false
+spring.datasource.username=root
+spring.datasource.password=123456
+```
 
 ## 7.监控参数
 
