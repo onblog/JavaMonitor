@@ -193,3 +193,5 @@ spring.jpa.hibernate.ddl-auto=update
 *作者邮箱：yster@foxmail.com*
 
 *交流QQ群：781927207*
+
+<img src="./picture/didiyun.png" width="100px">[滴滴云免费提供云计算服务](https://www.didiyun.com/?channel=14214)
