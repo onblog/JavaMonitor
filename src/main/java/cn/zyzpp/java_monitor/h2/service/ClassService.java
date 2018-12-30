@@ -37,10 +37,6 @@ public class ClassService {
         classLoadRespository.save(entity);
     }
 
-    public void clear() {
-
-    }
-
     public void clearAll() {
         classLoadRespository.deleteAll();
     }
