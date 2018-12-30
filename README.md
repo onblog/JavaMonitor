@@ -90,39 +90,39 @@ spring.jpa.hibernate.ddl-auto=update
 
 监控参数的含义如下：
 
-- S0C：s0（from）的大小（KB）
+- S0C：s0（from）的大小
 
-- S1C：s1（from）的大小（KB）
+- S1C：s1（from）的大小
 
-- S0U：s0（from）已使用的空间（KB）
+- S0U：s0（from）已使用的空间
 
-- S1U：s1(from)已经使用的空间(KB)
+- S1U：s1(from)已经使用的空间
 
-- EC：eden区的大小(KB)
+- EC：eden区的大小
 
-- EU：eden区已经使用的空间(KB)
+- EU：eden区已经使用的空间
 
-- OC：老年代大小(KB)
+- OC：老年代大小
 
-- OU：老年代已经使用的空间(KB)
+- OU：老年代已经使用的空间
 
 - MC：元空间的大小（Metaspace）
 
-- MU：元空间已使用大小（KB）
+- MU：元空间已使用大小
 
 - CCSC：压缩类空间大小（compressed class space）
 
-- CCSU：压缩类空间已使用大小（KB）
+- CCSU：压缩类空间已使用大小
 
 - YGC：新生代gc次数
 
-- YGCT：新生代gc耗时（秒）
+- YGCT：新生代gc耗时
 
 - FGC：Full gc次数
 
-- FGCT：Full gc耗时（秒）
+- FGCT：Full gc耗时
 
-- GCT：gc总耗时（秒）
+- GCT：gc总耗时
 
 - Loaded：表示载入了类的数量
 
