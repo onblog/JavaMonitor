@@ -19,7 +19,7 @@ import java.io.IOException;
  * Create by yster@foxmail.com 2018/11/14 0014 22:51
  */
 @Controller
-public class FileController {
+public class DumpController {
     private Logger logger = LoggerFactory.getLogger(getClass().getName());
 
     @RequestMapping("/heap")

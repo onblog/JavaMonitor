@@ -1,7 +1,6 @@
 package cn.zyzpp.java_monitor.core.order;
 
 import cn.zyzpp.java_monitor.core.cmd.ExecuteCmd;
-import cn.zyzpp.java_monitor.core.entity.JinfoEntity;
 import org.junit.Test;
 
 import java.lang.management.ManagementFactory;
@@ -11,12 +10,6 @@ import java.lang.management.OperatingSystemMXBean;
  * Create by yster@foxmail.com 2018/11/17 0017 13:03
  */
 public class Tools {
-
-    @Test
-    public void infoTest(){
-        JinfoEntity info = Jinfo.info("8224");
-        System.out.println(info.toString());
-    }
 
     @Test
     public void system(){
