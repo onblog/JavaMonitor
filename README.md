@@ -115,9 +115,9 @@ spring.jpa.hibernate.ddl-auto=update
 
 *博客：https://www.yueshutong.cn/*
 
-*Github：https://github.com/yueshutong/JavaMonitorPlus*
+*Github：https://github.com/yueshutong/JavaMonitor*
 
-*Gitee：https://gitee.com/zyzpp/JavaMonitorPlus*
+*Gitee：https://gitee.com/zyzpp/JavaMonitor*
 
 *邮箱：yster@foxmail.com*
 
