@@ -1,3 +1,5 @@
+## 更为强大的[JavaMonitorPlus](https://github.com/yueshutong/JavaMonitorPlus)已经发布，JavaMonitor暂停更新
+
 # Java应用性能监控系统 - 单机版（JM）
 
 ## 1.简介
