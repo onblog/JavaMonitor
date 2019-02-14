@@ -24,7 +24,7 @@ class InputStreamRunnable implements Runnable {
         int num = 1;
         try {
             while ((line = bReader.readLine()) != null) {
-                System.out.println("---->"+String.format("%02d",num++)+" "+line);
+                //System.out.println("---->"+String.format("%02d",num++)+" "+line);
             }
             bReader.close();
         } catch (Exception ex) {
