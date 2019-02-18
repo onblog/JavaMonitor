@@ -21,6 +21,10 @@ public class Jmap {
         if (!file.exists()){
             file.mkdirs();
         }
+        File file1 = new File(path);
+        if (file1.exists()){
+            file1.delete();
+        }
         ExecuteCmd.execute(new String[]{"jmap","-dump:format=b,file="+path, id});
         return path;
     }
