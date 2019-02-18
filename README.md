@@ -10,6 +10,8 @@ JavaMonitor 发布之后，受到了很多网友的好评，QQ群也有很多人
 
 要求JDK8及以上，必须有Java环境变量，且Java环境变量不冲突！
 
+在Linux服务器运行很长时间的Java应用获取不到堆快照时，参考这篇http://blog.51cto.com/zhangshaoxiong/1310166
+
 ## 三、使用
 
 首先，在releases下载发行版压缩包，解压。
