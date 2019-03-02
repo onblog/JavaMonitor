@@ -20,7 +20,7 @@ public class ClearDumpJob {
     /**
      * 清理快照目录
      */
-    @Scheduled(cron="0 0 0 * * ?")
+    @Scheduled(cron = "0 0 * * * ?")
     public void clearDump() {
         String path = PathUtil.getRootPath("dump/");
         File file = new File(path);
