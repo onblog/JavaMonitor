@@ -37,8 +37,13 @@ public class Jstack {
      * @return
      */
     public static String dump(String id) throws IOException {
+        //判断NULL
+        if (id==null||"".equals(id)){
+            throw new NullPointerException("参数id为NULL");
+        }
         String path = PathUtil.getRootPath("dump/"+id+"_thread.txt");
         String s = ExecuteCmd.execute(new String[]{"jstack", id});
+        //是否正常生成快照文件
         if (s.isEmpty()){
             throw new DumpException(id);
         }
