@@ -18,6 +18,10 @@ public class Jmap {
      * @return
      */
     public static String dump(String id) throws IOException {
+        //判断NULL
+        if (id==null||"".equals(id)){
+            throw new NullPointerException("参数id为NULL");
+        }
         //检验dump目录是否存在
         File dump = new File(PathUtil.getRootPath("dump/"));
         if (!dump.exists()){
