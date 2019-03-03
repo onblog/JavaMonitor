@@ -24,7 +24,6 @@ public class DumpController {
 
     @RequestMapping("/heap")
     public ResponseEntity<byte[]> heapDump(String id) throws IOException {
-        assert id!=null&&!id.isEmpty();
         String dump = Jmap.dump(id);
         File file = new File(dump);
         logger.debug("DownLoad Dump:"+dump);
@@ -36,7 +35,6 @@ public class DumpController {
 
     @RequestMapping("/thread")
     public ResponseEntity<byte[]> threadDump(String id) throws IOException {
-        assert id!=null&&!id.isEmpty();
         String dump = Jstack.dump(id);
         File file = new File(dump);
         logger.debug("DownLoad Dump:"+dump);
