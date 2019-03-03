@@ -4,6 +4,7 @@ import cn.yueshutong.client.core.cmd.ExecuteCmd;
 import cn.yueshutong.client.core.entity.JstackEntity;
 import cn.yueshutong.client.core.util.ArrayUtil;
 import cn.yueshutong.client.core.util.PathUtil;
+import cn.yueshutong.client.dump.exception.DumpException;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;
@@ -38,6 +39,9 @@ public class Jstack {
     public static String dump(String id) throws IOException {
         String path = PathUtil.getRootPath("dump/"+id+"_thread.txt");
         String s = ExecuteCmd.execute(new String[]{"jstack", id});
+        if (s.isEmpty()){
+            throw new DumpException(id);
+        }
         File file = new File(path);
         FileUtils.write(file,s,Charset.forName("UTF-8"));
         return path;
