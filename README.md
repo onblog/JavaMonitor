@@ -2,8 +2,6 @@
 
 适用于监控所有Java应用，具有堆内存监控、方法区监控、GC监控、类加载监控、类编译监控与线程监控，提供堆快照下载，线程快照下载。体验网址：[http://116.85.23.6:8888/](http://116.85.23.6:8888/)
 
-![./JavaMonitor/picture/搜狗截图20190317192605.png](./JavaMonitor/picture/搜狗截图20190317192605.png)
-
 ## 一、简介
 
 JavaMonitor 发布之后，受到了很多网友的好评，QQ群也有很多人加入反馈建议，身为作者，甚是开心。但 JavaMonitor 的局限性也有很多，比如，无法进行远程监控，无法监控多个服务器，占用内存太大等等。为了解决上述问题，基于 JavaMonitor-0.0.7 开发而成的 JavaMonitoPlus 诞生了！JavaMonitoPlus 不仅解决了上述三个问题，而且增加了安全认证，优化了缓存，使页面访问更加流畅！
@@ -128,3 +126,6 @@ spring.jpa.hibernate.ddl-auto=update
 *QQ群：781927207*
 
 <img src="./JavaMonitor/picture/didiyun.png" width="100px">[滴滴云免费提供云计算服务](https://www.didiyun.com/?channel=14214)
+
+![./JavaMonitor/picture/搜狗截图20190317192605.png](./JavaMonitor/picture/搜狗截图20190317192605.png)
+
