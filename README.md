@@ -33,6 +33,8 @@ monitor.serve[1].address=http://127.0.0.1:8082
 
 注意：一定要写明HTTP协议！name值若不写，默认就是主机地址。
 
+![./JavaMonitor/picture/搜狗截图20190317192605.png](./JavaMonitor/picture/搜狗截图20190317192605.png)
+
 ## 五、监控
 
 默认监控频率为60秒，并且只记录当天产生的监控数据。
