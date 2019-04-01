@@ -125,5 +125,9 @@ spring.jpa.hibernate.ddl-auto=update
 
 <img src="./JavaMonitor/picture/didiyun.png" width="100px">[滴滴云免费提供云计算服务](https://www.didiyun.com/?channel=14214)
 
+<img src="./JavaMonitor/picture/赞赏码.png" width="100px">
+
+**JavaMonitorPlus监控架构图**
+
 ![./JavaMonitor/picture/搜狗截图20190317192605.png](./JavaMonitor/picture/搜狗截图20190317192605.png)
 
