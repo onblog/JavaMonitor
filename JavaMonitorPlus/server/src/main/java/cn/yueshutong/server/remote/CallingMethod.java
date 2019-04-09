@@ -17,40 +17,62 @@ import java.util.Map;
 public class CallingMethod {
 
     public static String getSystem(String address) throws IOException {
-        return HttpUtil.connect(address+"/system").execute().getBody();
+        String url = address + "/system";
+        return connectHost(url);
     }
 
     public static String getVersion(String address) throws IOException {
-        return HttpUtil.connect(address+"/version").execute().getBody();
+        String url = address + "/version";
+        return connectHost(url);
     }
 
     public static JinfoEntity getInfo(String address, String id) throws IOException {
-        String body = HttpUtil.connect(address + "/info"+"?id=" + id).execute().getBody();
+        String url = address + "/info" + "?id=" + id;
+        String body = connectHost(url);
         return JSON.parseObject(body,JinfoEntity.class);
     }
 
     public static JstackEntity getJstack(String address, String id) throws IOException {
-        String body = HttpUtil.connect(address + "/jstack"+"?id=" + id).execute().getBody();
+        String url = address + "/jstack" + "?id=" + id;
+        String body = connectHost(url);
         return JSON.parseObject(body,JstackEntity.class);
     }
 
     public static Map<String, JpsEntity> getJps(String address) throws IOException {
-        String body = HttpUtil.connect(address + "/jps").execute().getBody();
-        return JSON.parseObject(body,Map.class);
+        String url = address + "/jps";
+        String body = connectHost(url);
+        return JSON.parseObject(body, Map.class);
     }
 
     public static List<KVEntity> getJstatClass(String address, String id) throws Exception {
-        String body = HttpUtil.connect(address + "/jstatclass"+"?id=" + id).execute().getBody();
+        String url = address + "/jstatclass" + "?id=" + id;
+        String body = connectHost(url);
         return JSON.parseArray(body,KVEntity.class);
     }
 
     public static List<KVEntity> getJstatGc(String address, String id) throws Exception {
-        String body = HttpUtil.connect(address + "/jstatgc"+"?id=" + id).execute().getBody();
+        String url = address + "/jstatgc" + "?id=" + id;
+        String body = connectHost(url);
         return JSON.parseArray(body,KVEntity.class);
     }
 
     public static List<KVEntity> getJstatUtil(String address, String id) throws Exception {
-        String body = HttpUtil.connect(address + "/jstatutil"+"?id=" + id).execute().getBody();
+        String url = address + "/jstatutil" + "?id=" + id;
+        String body = connectHost(url);
         return JSON.parseArray(body,KVEntity.class);
+    }
+
+    /**
+     * 统一异常处理
+     * @param url
+     * @return
+     * @throws IOException
+     */
+    private static String connectHost(String url) throws IOException {
+        try {
+            return HttpUtil.connect(url).execute().getBody();
+        } catch (IOException e) {
+            throw new IOException("连接主机异常：" + url, e);
+        }
     }
 }
