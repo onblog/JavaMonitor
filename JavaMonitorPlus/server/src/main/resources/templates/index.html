@@ -29,7 +29,7 @@
                     <a class="" href="javascript:void(0)"><i class="layui-icon">&#xe665;</i>&nbsp;<span th:text="${item.get('address').name}"></span></a>
                     <dl class="layui-nav-child" th:each="j:${item.get('jps')}">
                         <dd>
-                            <a th:onclick="'step(\''+${item.get('address').address}+'\','+${j.key}+')'" href="javascript:void(0)" th:text="${j.value.smallName}"></a>
+                            <a th:onclick="'step(\''+${item.get('address').address}+'\','+${j.key}+')'" href="javascript:void(0)" th:text="${j.value.smallName}" th:title="${j.value.smallName}"></a>
                         </dd>
                     </dl>
                 </li>
