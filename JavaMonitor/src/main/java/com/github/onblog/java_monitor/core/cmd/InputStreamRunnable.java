@@ -19,12 +19,13 @@ class InputStreamRunnable implements Runnable {
         }
     }
 
+    @Override
     public void run() {
         String line;
         int num = 1;
         try {
             while ((line = bReader.readLine()) != null) {
-                System.out.println("---->"+String.format("%02d",num++)+" "+line);
+                System.out.println(String.format("%02d",num++)+" "+line);
             }
             bReader.close();
         } catch (Exception ex) {
