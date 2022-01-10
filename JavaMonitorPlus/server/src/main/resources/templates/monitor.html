@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>应用监控</title>
+    <link rel="stylesheet" href="/lib/layui/css/layui.css"/>
+</head>
+<style>
+    .layui-col-md6 {
+        padding: 5px;
+    }
+
+    .layui-card-header {
+        color: #444 !important;
+    }
+
+    .title {
+        padding: 1px 5px;
+    }
+</style>
+<body style="background-color: #F2F2F2">
+<div style="padding: 20px;">
+
+    <div class="layui-col-md12" style="margin-bottom: 15px">
+        <div class="layui-card">
+            <div class="layui-card-header">
+                <i class="layui-icon"></i>
+                <span>进程 / 实时监控</span>
+                <span style="float: right;">
+                    <button id="pinlv" class="layui-btn layui-btn-xs">频率</button>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-col-md12" style="margin-bottom: 10px">
+        <div class="layui-card">
+            <div class="layui-card-header">
+                <span class="layui-badge layui-bg-green title">堆内存监控</span>
+                <span style="float: right;">
+                    <button id="heap_button" class="layui-btn layui-btn-xs ">快照</button>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-col-md6">
+        <div class="layui-card">
+            <div class="layui-card-header">
+                <span class="layui-badge layui-bg-cyan">Eden Space</span>
+            </div>
+            <div class="layui-card-body" id="eden" style="height: 330px">
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-col-md6">
+        <div class="layui-card">
+            <div class="layui-card-header">
+                <span class="layui-badge layui-bg-cyan">Survivor Space0</span>
+            </div>
+            <div class="layui-card-body" id="s0" style="height: 330px">
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-col-md6">
+        <div class="layui-card">
+            <div class="layui-card-header">
+                <span class="layui-badge layui-bg-cyan">Survivor Space1</span>
+            </div>
+            <div class="layui-card-body" id="s1" style="height: 330px">
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-col-md6">
+        <div class="layui-card">
+            <div class="layui-card-header">
+                <span class="layui-badge layui-bg-cyan">老年代</span>
+            </div>
+            <div class="layui-card-body" id="old" style="height: 330px">
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-col-md12" style="margin: 10px 0 10px 0">
+        <div class="layui-card">
+            <div class="layui-card-header">
+                <span class="layui-badge layui-bg-green title">方法区监控</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-col-md6">
+        <div class="layui-card">
+            <div class="layui-card-header">
+                <span class="layui-badge layui-bg-cyan">元空间</span>
+            </div>
+            <div class="layui-card-body" id="mc" style="height: 330px">
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-col-md6">
+        <div class="layui-card">
+            <div class="layui-card-header">
+                <span class="layui-badge layui-bg-cyan">类指针压缩空间</span>
+            </div>
+            <div class="layui-card-body" id="ccsc" style="height: 330px">
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-col-md12" style="margin: 10px 0 10px 0">
+        <div class="layui-card">
+            <div class="layui-card-header">
+                <span class="layui-badge layui-bg-green title">GC监控</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-col-md6">
+        <div class="layui-card">
+            <div class="layui-card-header">
+                <span class="layui-badge layui-bg-cyan">GC次数</span>
+            </div>
+            <div class="layui-card-body" id="gcn" style="height: 330px">
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-col-md6">
+        <div class="layui-card">
+            <div class="layui-card-header">
+                <span class="layui-badge layui-bg-cyan">GC耗时</span>
+            </div>
+            <div class="layui-card-body" id="gct" style="height: 330px">
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-col-md12" style="margin: 10px 0 10px 0">
+        <div class="layui-card">
+            <div class="layui-card-header">
+                <span class="layui-badge layui-bg-green title">类加载监控</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-col-md6">
+        <div class="layui-card">
+            <div class="layui-card-header">
+                <span class="layui-badge layui-bg-cyan">类加载数量</span>
+            </div>
+            <div class="layui-card-body" id="classn" style="height: 330px">
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-col-md6">
+        <div class="layui-card">
+            <div class="layui-card-header">
+                <span class="layui-badge layui-bg-cyan">类加载耗时</span>
+            </div>
+            <div class="layui-card-body" id="classt" style="height: 330px">
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-col-md6" style="margin: 10px 0 10px 0">
+        <div class="layui-card">
+            <div class="layui-card-header">
+                <!--<span class="layui-badge layui-bg-green title">类加载监控</span>-->
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-col-md6" style="margin: 10px 0 10px 0">
+        <div class="layui-card">
+            <div class="layui-card-header">
+                <span class="layui-badge layui-bg-green title">类编译监控</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-col-md6">
+        <div class="layui-card">
+            <div class="layui-card-header">
+                <span class="layui-badge layui-bg-cyan">类加载大小</span>
+            </div>
+            <div class="layui-card-body" id="combyte" style="height: 330px">
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-col-md6">
+        <div class="layui-card">
+            <div class="layui-card-header">
+                <span class="layui-badge layui-bg-cyan">类编译数量</span>
+            </div>
+            <div class="layui-card-body" id="comn" style="height: 330px">
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-col-md6" style="margin: 10px 0 10px 0">
+        <div class="layui-card">
+            <div class="layui-card-header">
+                <!--<span class="layui-badge layui-bg-green title">类编译监控</span>-->
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-col-md6" style="margin: 10px 0 10px 0">
+        <div class="layui-card">
+            <div class="layui-card-header">
+                <span class="layui-badge layui-bg-green title">线程监控</span>
+                <span style="float: right;"><button id="thread_button"
+                                                    class="layui-btn layui-btn-xs ">快照</button></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-col-md6">
+        <div class="layui-card">
+            <div class="layui-card-header">
+                <span class="layui-badge layui-bg-cyan">类编译耗时</span>
+            </div>
+            <div class="layui-card-body" id="comt" style="height: 330px">
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-col-md6">
+        <div class="layui-card">
+            <div class="layui-card-header">
+                <span class="layui-badge layui-bg-cyan">总数/运行/等待/休眠</span>
+            </div>
+            <div class="layui-card-body" id="thread" style="height: 330px">
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="/lib/jquery.min.js"></script>
+<script src="/lib/sockjs.min.js"></script>
+<script src="/lib/stomp.min.js"></script>
+<script src="/lib/layui/layui.all.js"></script>
+<!-- ECharts单文件引入 -->
+<script src="/lib/echarts.min.js"></script>
+<script src="/js/util.js"></script>
+<script src="/js/socket.js"></script>
+<script src="/js/s0.js"></script>
+<script src="/js/s1.js"></script>
+<script src="/js/eden.js"></script>
+<script src="/js/old.js"></script>
+<script src="/js/mc.js"></script>
+<script src="/js/ccsc.js"></script>
+<script src="/js/gcn.js"></script>
+<script src="/js/gct.js"></script>
+<script src="/js/classn.js"></script>
+<script src="/js/classt.js"></script>
+<script src="/js/comn.js"></script>
+<script src="/js/comt.js"></script>
+<script src="/js/combyte.js"></script>
+<script src="/js/thread.js"></script>
+</body>
+</html>
