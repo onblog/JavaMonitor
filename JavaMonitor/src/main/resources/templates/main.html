@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>进程列表</title>
+    <link rel="stylesheet" href="/lib/layui/css/layui.css"/>
+</head>
+<style>
+    body {
+        background-color: #f2f2f2;
+    }
+
+    .layui-collapse {
+        margin-top: 10px;
+        background-color: #FFF;
+    }
+
+    h2.layui-colla-title {
+        background-color: #FFF;
+    }
+
+    .layui-colla-content {
+        background-color: #f9f9f9;
+    }
+</style>
+<body>
+<div style="padding: 20px; background-color: #F2F2F2;">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header">
+                    <i class="layui-icon">&#xe68e;</i>
+                    <span>首页 / 进程列表</span>
+                    <span class="layui-badge-rim" style="float: right;margin-top: 12px;">v1.0</span>
+                </div>
+                <div class="layui-card-body" style="color: #555;" th:text="${version}">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-collapse" lay-accordion="">
+        <div class="layui-colla-item" th:each="jps2:${jps}">
+            <h2 class="layui-colla-title" th:text="${jps2.getValue().getClassName()}+' ['+${jps2.getKey()}+']'"></h2>
+            <div class="layui-colla-content">
+                <p><i>VM Flags:</i></p>
+                <div th:each="parm:${jps2.getValue().getParameters()}"><p th:text="'&nbsp;&nbsp;'+${parm}"></p></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="/lib/layui/layui.all.js"></script>
+</body>
+</html>
