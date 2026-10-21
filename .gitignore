@@ -1,0 +1,5 @@
+node_modules/
+dist/
+assets/big-test.ttf
+.DS_Store
+.wrangler/

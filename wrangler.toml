@@ -1,0 +1,16 @@
+name = "font-squeeze"
+compatibility_date = "2025-01-15"
+
+# 纯静态站点：不占用 Workers 请求的 CPU 配额
+[assets]
+directory = "./dist"
+not_found_handling = "single-page-application"
+html_handling = "auto-trailing-slash"
+
+# 自定义域名：font.wordtk.com 需已托管在同一 Cloudflare 账户下
+[[routes]]
+pattern = "font.wordtk.com"
+custom_domain = true
+
+[observability]
+enabled = true

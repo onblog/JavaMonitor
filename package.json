@@ -1,0 +1,30 @@
+{
+  "name": "font-squeeze",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "description": "Subset WebFonts to the characters your page uses, and convert between ttf/woff/woff2 — entirely in the browser",
+  "homepage": "https://font.wordtk.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/onblog/font-squeeze.git"
+  },
+  "license": "AGPL-3.0-only",
+  "author": "Martin <onblog@users.noreply.github.com>",
+  "keywords": [
+    "webfont",
+    "font-subset",
+    "font-converter",
+    "woff2",
+    "harfbuzz",
+    "wasm"
+  ],
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "build": "node scripts/build.mjs",
+    "deploy": "node scripts/build.mjs && wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

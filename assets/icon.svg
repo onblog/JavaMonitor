@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="字压 FontSqueeze">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#141a26"/>
+      <stop offset="1" stop-color="#0a0c11"/>
+    </linearGradient>
+    <linearGradient id="ink" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#9db4ff"/>
+      <stop offset="1" stop-color="#7c9cff"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="30" fill="url(#bg)"/>
+  <rect x="1" y="1" width="126" height="126" rx="29" fill="none" stroke="#2b3545"/>
+  <!-- 字 -->
+  <text x="64" y="78" text-anchor="middle" font-size="56" font-weight="700"
+        font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif"
+        fill="url(#ink)">字</text>
+  <!-- 压缩箭头 -->
+  <g stroke="#3ddc97" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.92">
+    <path d="M22 96 H44"/>
+    <path d="M30 88 L38 96 L30 104"/>
+    <path d="M106 96 H84"/>
+    <path d="M98 88 L90 96 L98 104"/>
+  </g>
+</svg>

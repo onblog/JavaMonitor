@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>字压 · 浏览器内 WebFont 裁剪与格式转换</title>
+    <meta
+      name="description"
+      content="按页面实际用字裁剪 WebFont，并在 ttf / woff / woff2 之间自由转换。全部在浏览器内完成，字体不会上传到任何服务器。"
+    />
+    <link rel="stylesheet" href="./src/styles.css" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🕸️</text></svg>" />
+  </head>
+  <body>
+    <header class="masthead">
+      <div class="masthead__inner">
+        <div class="brand">
+          <span class="brand__mark">字</span>
+          <div>
+            <h1>字压 <span class="brand__alt">FontSqueeze</span></h1>
+            <p class="brand__tagline">
+              按页面实际用字裁剪 WebFont，或在 ttf / woff / woff2 之间自由转换 —— 全部在本地浏览器完成，字体不会上传。
+            </p>
+          </div>
+        </div>
+        <div class="badges">
+          <span class="badge badge--live">harfbuzz WASM</span>
+          <span class="badge">零后端</span>
+          <span class="badge">离线可用</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="modebar" role="tablist" aria-label="工作模式">
+      <button type="button" class="mode is-active" data-mode="compress" role="tab" aria-selected="true">
+        <span class="mode__title">按需裁剪</span>
+        <span class="mode__desc">只保留页面实际用到的字</span>
+      </button>
+      <button type="button" class="mode" data-mode="convert" role="tab" aria-selected="false">
+        <span class="mode__title">格式转换</span>
+        <span class="mode__desc">ttf / woff / woff2 互转</span>
+      </button>
+    </div>
+
+    <main class="layout">
+      <div class="column column--form">
+        <!-- 1. 字体 -->
+        <section class="panel" id="panel-font">
+          <div class="panel__head">
+            <span class="panel__index">01</span>
+            <h2>选择字体</h2>
+          </div>
+
+          <label class="dropzone" id="dropzone" for="fileInput">
+            <input
+              id="fileInput"
+              type="file"
+              accept=".ttf,.otf,.woff,.woff2,font/ttf,font/otf,font/woff,font/woff2"
+              hidden
+            />
+            <span class="dropzone__icon">＋</span>
+            <span class="dropzone__title">点击选择，或把字体拖进来</span>
+            <span class="dropzone__hint">支持 ttf / otf / woff / woff2</span>
+          </label>
+
+          <div class="file-card" id="fileCard" hidden>
+            <div class="file-card__main">
+              <strong id="fileName">—</strong>
+              <span id="fileMeta" class="muted">—</span>
+            </div>
+            <button type="button" class="ghost" id="clearFile">移除</button>
+          </div>
+
+          <button type="button" class="ghost sample-link" id="sampleBtn">
+            手边没有字体？用内置的 FontAwesome 图标字体试一下
+          </button>
+
+          <div class="preview" id="previewBox" hidden>
+            <span class="preview__label">字形预览</span>
+            <p id="previewText" class="preview__text">永和九年，岁在癸丑</p>
+          </div>
+        </section>
+
+        <!-- 2. 字符集 -->
+        <section class="panel" id="panel-chars">
+          <div class="panel__head">
+            <span class="panel__index">02</span>
+            <h2>提供用到的文字</h2>
+          </div>
+
+          <div class="tabs" role="tablist">
+            <button class="tab is-active" data-tab="text" role="tab">直接输入</button>
+            <button class="tab" data-tab="html" role="tab">粘贴 HTML</button>
+            <button class="tab" data-tab="url" role="tab">输入网址</button>
+          </div>
+
+          <div class="tabpanel" data-panel="text">
+            <textarea
+              id="textInput"
+              rows="6"
+              placeholder="把页面上会出现的文字粘贴进来，例如标题、按钮、正文……"
+            ></textarea>
+          </div>
+
+          <div class="tabpanel" data-panel="html" hidden>
+            <textarea
+              id="htmlInput"
+              rows="6"
+              placeholder="粘贴页面源码（或在浏览器里「查看源代码」后全选复制），会自动提取文本、placeholder、伪元素 content 与 alt/title。"
+            ></textarea>
+            <button type="button" class="secondary" id="extractBtn">从 HTML 提取文字</button>
+          </div>
+
+          <div class="tabpanel" data-panel="url" hidden>
+            <div class="url-row">
+              <input id="urlInput" type="url" placeholder="https://example.com" />
+              <button type="button" class="secondary" id="fetchBtn">抓取</button>
+            </div>
+            <p class="hint">
+              浏览器同源策略会拦截多数站点的跨域读取；若失败，请改用「粘贴 HTML」。
+            </p>
+          </div>
+
+          <div class="char-stats" id="charStats">
+            <span><b id="statTotal">0</b> 字符</span>
+            <span class="dot"></span>
+            <span>汉字 <b id="statCjk">0</b></span>
+            <span class="dot"></span>
+            <span>字母数字 <b id="statLatin">0</b></span>
+            <span class="dot"></span>
+            <span>标点符号 <b id="statPunct">0</b></span>
+          </div>
+        </section>
+
+        <!-- 3. 选项 -->
+        <section class="panel" id="panel-options">
+          <div class="panel__head">
+            <span class="panel__index">03</span>
+            <h2>输出设置</h2>
+          </div>
+
+          <div class="options">
+            <label class="switch">
+              <input type="checkbox" id="optSfnt" checked />
+              <span class="switch__track"><span class="switch__thumb"></span></span>
+              <span class="switch__text">
+                <b id="optSfntLabel">ttf</b><em id="optSfntHint">回退格式，便于二次编辑</em>
+              </span>
+            </label>
+            <label class="switch">
+              <input type="checkbox" id="optWoff" />
+              <span class="switch__track"><span class="switch__thumb"></span></span>
+              <span class="switch__text"><b>woff</b><em>兼容老浏览器，zlib 压缩外壳</em></span>
+            </label>
+            <label class="switch">
+              <input type="checkbox" id="optWoff2" checked />
+              <span class="switch__track"><span class="switch__thumb"></span></span>
+              <span class="switch__text"><b>woff2</b><em>体积最小，现代浏览器首选</em></span>
+            </label>
+            <label class="switch" id="noHintingRow">
+              <input type="checkbox" id="optNoHinting" />
+              <span class="switch__track"><span class="switch__thumb"></span></span>
+              <span class="switch__text"><b>移除 hinting</b><em>可再省几个百分点</em></span>
+            </label>
+          </div>
+
+          <p class="hint hint--note" id="convertNote" hidden>
+            这一模式只更换文件容器，<b>不改动字形轮廓</b> —— TrueType(glyf) 与 CFF 是两套曲线体系，互转会有损。
+          </p>
+
+          <button type="button" class="primary" id="runBtn" disabled>开始裁剪</button>
+          <p class="hint" id="runHint">请先选择字体并填入字符集</p>
+        </section>
+      </div>
+
+      <div class="column column--result">
+        <section class="panel panel--result" id="panel-result">
+          <div class="panel__head">
+            <span class="panel__index">04</span>
+            <h2 id="resultTitle">裁剪结果</h2>
+          </div>
+
+          <div class="empty" id="resultEmpty">
+            <span class="empty__glyph">字</span>
+            <p>结果会显示在这里</p>
+            <p class="muted" id="resultEmptyHint">上传字体、补充文字，然后点「开始裁剪」</p>
+          </div>
+
+          <div class="result" id="resultBox" hidden>
+            <div class="result__headline">
+              <div class="result__saved">
+                <span id="resultSaved">—</span>
+                <small id="resultSavedLabel">体积减少</small>
+              </div>
+              <div class="result__meta" id="resultMeta">—</div>
+            </div>
+
+            <div class="bars" id="bars"></div>
+
+            <div class="downloads" id="downloads"></div>
+
+            <details class="css-snippet">
+              <summary>生成对应的 @font-face 代码</summary>
+              <pre id="cssOut"></pre>
+              <button type="button" class="ghost" id="copyCss">复制</button>
+            </details>
+          </div>
+
+          <div class="error" id="errorBox" hidden></div>
+        </section>
+
+        <section class="panel panel--notes">
+          <h2 class="notes__title">它做了什么</h2>
+          <ol class="notes">
+            <li><b>抓字</b>：解析页面文本节点、placeholder、伪元素 content、alt/title。</li>
+            <li><b>裁剪</b>：harfbuzz <code>hb-subset</code> 在 WASM 里按字符集重建字形表。</li>
+            <li><b>转档</b>：woff / woff2 都由 WASM 与浏览器原生压缩流在本地完成，不经过服务器。</li>
+          </ol>
+          <p class="notes__foot">
+            受浏览器同源策略限制，无法模拟 <code>font-spider</code> 的 PhantomJS 渲染抓字；动态插入的文案请直接粘贴。
+          </p>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <span>字符裁剪引擎：harfbuzz (WASM) · 编解码：woff2 (WASM)</span>
+      <span>字体始终停留在你的浏览器内</span>
+    </footer>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
