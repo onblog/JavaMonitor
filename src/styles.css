@@ -3,24 +3,35 @@
    ============================================================ */
 
 :root {
-  --bg: #0a0c11;
-  --bg-elevated: #11151d;
-  --bg-input: #0d1017;
-  --line: #1f2632;
-  --line-strong: #2b3545;
-  --text: #e9eef6;
-  --text-dim: #9aa6b8;
-  --text-faint: #667085;
-  --accent: #7c9cff;
-  --accent-dim: rgba(124, 156, 255, 0.12);
-  --good: #3ddc97;
-  --warn: #f2b544;
-  --danger: #ff6b6b;
+  --bg: #ffffff;
+  --bg-elevated: #ffffff;
+  --bg-input: #f6f9fc;
+  --line: #e3e8ee;
+  --line-strong: #cfd7e0;
+  --text: #0d253d;
+  --text-dim: #5a6b82;
+  --text-faint: #6f8399;
+  --accent: #533afd;
+  --accent-dim: rgba(83, 58, 253, 0.09);
+  --good: #16a34a;
+  --warn: #b45309;
+  --danger: #dc2626;
   --radius: 14px;
   --radius-sm: 9px;
   --mono: 'SF Mono', ui-monospace, 'Cascadia Code', Menlo, Consolas, monospace;
   --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC',
     'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+
+  /* 派生色：换主题只需要覆盖这一组 + 上面几个基础色 */
+  --on-accent: #ffffff;      /* 强调色块上的文字 */
+  --accent-soft: #665efd;    /* 强调渐变的浅端 */
+  --accent-deep: #4434d4;    /* 强调渐变的深端 */
+  --panel-fade: #f8fbfe;     /* 面板渐变收尾色 */
+  --track: #e3e8ee;          /* 开关轨道 */
+  --thumb: #a8c3de;          /* 开关滑块 */
+  --bar-origin: #cfd7e0;     /* 原始体积条 */
+  --danger-text: #b91c1c;
+  --warn-text: #a16207;
 }
 
 * {
@@ -33,14 +44,15 @@
 }
 
 html {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 body {
   margin: 0;
   background:
-    radial-gradient(900px 500px at 15% -10%, rgba(124, 156, 255, 0.09), transparent 60%),
-    radial-gradient(700px 400px at 95% 0%, rgba(61, 220, 151, 0.05), transparent 55%),
+    radial-gradient(700px 360px at 10% -8%, rgba(83, 58, 253, 0.13), transparent 62%),
+    radial-gradient(640px 330px at 90% -6%, rgba(249, 107, 238, 0.10), transparent 60%),
+    radial-gradient(560px 300px at 50% -4%, rgba(0, 55, 112, 0.05), transparent 66%),
     var(--bg);
   color: var(--text);
   font-family: var(--sans);
@@ -64,7 +76,7 @@ code {
 
 .masthead {
   border-bottom: 1px solid var(--line);
-  background: rgba(10, 12, 17, 0.72);
+  background: rgba(255, 255, 255, 0.82);
   backdrop-filter: blur(14px);
   position: sticky;
   top: 0;
@@ -94,8 +106,8 @@ code {
   display: grid;
   place-items: center;
   border-radius: 11px;
-  background: linear-gradient(150deg, var(--accent), #4f6ef0);
-  color: #05070b;
+  background: linear-gradient(150deg, var(--accent), var(--accent-deep));
+  color: var(--on-accent);
   font-weight: 800;
   font-size: 20px;
   letter-spacing: -0.5px;
@@ -179,9 +191,10 @@ code {
 /* ---------- panel ---------- */
 
 .panel {
-  background: linear-gradient(180deg, var(--bg-elevated), #0e121a);
+  background: linear-gradient(180deg, var(--bg-elevated), var(--panel-fade));
   border: 1px solid var(--line);
   border-radius: var(--radius);
+  box-shadow: 0 1px 2px rgba(13, 37, 61, 0.04), 0 12px 32px rgba(13, 37, 61, 0.045);
   padding: 20px;
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.02) inset;
 }
@@ -306,7 +319,7 @@ code {
   line-height: 1.35;
   letter-spacing: 0.5px;
   word-break: break-all;
-  color: #fff;
+  color: var(--text);
   max-height: 92px;
   overflow: hidden;
 }
@@ -460,7 +473,7 @@ textarea {
   width: 34px;
   height: 20px;
   border-radius: 999px;
-  background: #232b3a;
+  background: var(--track);
   transition: background 0.18s;
 }
 
@@ -471,7 +484,7 @@ textarea {
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background: #6c7a90;
+  background: var(--thumb);
   transition: transform 0.18s, background 0.18s;
 }
 
@@ -509,6 +522,7 @@ button {
 }
 
 .primary {
+  border-radius: 999px;
   width: 100%;
   border: 0;
   border-radius: var(--radius-sm);
@@ -516,8 +530,8 @@ button {
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.2px;
-  color: #05070b;
-  background: linear-gradient(150deg, #a3bdff, var(--accent));
+  color: var(--on-accent);
+  background: linear-gradient(150deg, var(--accent-soft), var(--accent));
   transition: transform 0.12s, box-shadow 0.16s, opacity 0.16s;
   box-shadow: 0 8px 24px rgba(124, 156, 255, 0.22);
 }
@@ -683,11 +697,11 @@ button {
 }
 
 .bar__fill--origin {
-  background: #3c4657;
+  background: var(--bar-origin);
 }
 
 .bar__fill--ttf {
-  background: linear-gradient(90deg, #4f6ef0, var(--accent));
+  background: linear-gradient(90deg, var(--accent-deep), var(--accent));
 }
 
 .bar__fill--woff2 {
@@ -781,7 +795,7 @@ button {
   border-radius: var(--radius-sm);
   border: 1px solid rgba(255, 107, 107, 0.35);
   background: rgba(255, 107, 107, 0.08);
-  color: #ffb3b3;
+  color: var(--danger-text);
   font-family: var(--mono);
   font-size: 12px;
   line-height: 1.6;
@@ -965,7 +979,7 @@ button {
   border-radius: var(--radius-sm);
   border: 1px solid rgba(242, 181, 68, 0.28);
   background: rgba(242, 181, 68, 0.07);
-  color: #d9bd85;
+  color: var(--warn-text);
 }
 
 .hint--note b {

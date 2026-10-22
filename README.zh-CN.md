@@ -1,12 +1,12 @@
 <p align="center">
-  <b>🇨🇳 中文</b> · <a href="./README.md">🇺🇸 English</a>
-</p>
-
-<p align="center">
-  <img src="./assets/icon.svg" width="112" height="112" alt="字压 FontSqueeze" />
+  <img src="./assets/icon.svg" width="104" height="104" alt="字压 FontSqueeze" />
 </p>
 
 <h1 align="center">字压 · FontSqueeze</h1>
+
+<p align="center">
+  <b>🇨🇳 中文</b> · <a href="./README.md">🇺🇸 English</a>
+</p>
 
 <p align="center">
   按页面实际用字裁剪 WebFont，并在 <code>ttf</code> / <code>woff</code> / <code>woff2</code> 之间自由转换。<br />

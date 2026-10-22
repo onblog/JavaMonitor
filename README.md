@@ -1,12 +1,12 @@
 <p align="center">
-  <a href="./README.zh-CN.md">🇨🇳 中文</a> · <b>🇺🇸 English</b>
-</p>
-
-<p align="center">
-  <img src="./assets/icon.svg" width="112" height="112" alt="FontSqueeze" />
+  <img src="./assets/icon.svg" width="104" height="104" alt="FontSqueeze" />
 </p>
 
 <h1 align="center">FontSqueeze · 字压</h1>
+
+<p align="center">
+  <a href="./README.zh-CN.md">🇨🇳 中文</a> · <b>🇺🇸 English</b>
+</p>
 
 <p align="center">
   Subset a WebFont down to the characters your page actually uses, and convert freely between <code>ttf</code> / <code>woff</code> / <code>woff2</code>.<br />
