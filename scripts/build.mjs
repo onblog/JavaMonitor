@@ -10,8 +10,8 @@ const DIST = join(ROOT, 'dist');
 
 const ENTRIES = ['index.html', 'src', 'wasm', 'assets'];
 
-// 本地压测用的超大样本，不进产物
-const EXCLUDE = new Set(['big-test.ttf']);
+// 只给 README 用的资源，不进产物（screenshot 是官网截图，big-test 是本地压测样本）
+const EXCLUDE = new Set(['big-test.ttf', 'screenshot.png']);
 
 await rm(DIST, { recursive: true, force: true });
 await mkdir(DIST, { recursive: true });

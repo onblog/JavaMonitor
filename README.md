@@ -20,6 +20,18 @@
   <a href="#limitations">Limitations</a>
 </p>
 
+<p align="center">
+  <a href="https://font.wordtk.com">
+    <img
+      src="./assets/screenshot.png"
+      alt="FontSqueeze interface — the subset / convert mode switch above the font picker, character input and result panels"
+      width="880"
+    />
+  </a>
+</p>
+
+<p align="center"><sub>The interface above — <a href="https://font.wordtk.com">try it live</a>, nothing is uploaded.</sub></p>
+
 ---
 
 No backend, no queue, no waiting. Drop a font in, get the result back — fully offline.

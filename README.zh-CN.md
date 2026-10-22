@@ -20,6 +20,18 @@
   <a href="#限制">限制</a>
 </p>
 
+<p align="center">
+  <a href="https://font.wordtk.com">
+    <img
+      src="./assets/screenshot.png"
+      alt="字压 FontSqueeze 界面截图 —— 顶部「按需裁剪 / 格式转换」模式切换，下方是选择字体、提供文字与结果面板"
+      width="880"
+    />
+  </a>
+</p>
+
+<p align="center"><sub>上图就是实际界面 —— <a href="https://font.wordtk.com">点这里直接试</a>，字体不上传。</sub></p>
+
 ---
 
 没有后端、没有队列、没有等待。打开页面、拖进字体、拿到结果，全程离线可用。
