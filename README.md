@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/icon.svg" width="104" height="104" alt="FontSqueeze" />
+  <img src="./assets/icon.svg?v=2" width="104" height="104" alt="FontSqueeze" />
 </p>
 
 <h1 align="center">FontSqueeze · 字压</h1>
