@@ -9,13 +9,13 @@
       content="按页面实际用字裁剪 WebFont，并在 ttf / woff / woff2 之间自由转换。全部在浏览器内完成，字体不会上传到任何服务器。"
     />
     <link rel="stylesheet" href="./src/styles.css" />
-    <link rel="icon" href="./assets/icon.svg" type="image/svg+xml" />
+    <link rel="icon" href="./assets/icon.svg?v=2" type="image/svg+xml" />
   </head>
   <body>
     <header class="masthead">
       <div class="masthead__inner">
         <div class="brand">
-          <span class="brand__mark">字</span>
+          <img class="brand__mark" src="./assets/icon.svg" alt="字压 FontSqueeze" width="42" height="42" />
           <div>
             <h1>字压 <span class="brand__alt">FontSqueeze</span></h1>
             <p class="brand__tagline">
@@ -181,7 +181,7 @@
           </div>
 
           <div class="empty" id="resultEmpty">
-            <span class="empty__glyph">字</span>
+            <img class="empty__glyph" src="./assets/icon.svg" alt="" width="52" height="52" />
             <p>结果会显示在这里</p>
             <p class="muted" id="resultEmptyHint">上传字体、补充文字，然后点「开始裁剪」</p>
           </div>

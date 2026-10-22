@@ -103,15 +103,10 @@ code {
 .brand__mark {
   width: 42px;
   height: 42px;
-  display: grid;
-  place-items: center;
-  border-radius: 11px;
-  background: linear-gradient(150deg, var(--accent), var(--accent-deep));
-  color: var(--on-accent);
-  font-weight: 800;
-  font-size: 20px;
-  letter-spacing: -0.5px;
-  box-shadow: 0 6px 20px rgba(124, 156, 255, 0.25);
+  display: block;
+  flex: none;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(68, 52, 212, 0.24);
 }
 
 .brand h1 {
@@ -605,10 +600,12 @@ button {
 }
 
 .empty__glyph {
-  font-size: 44px;
-  color: var(--line-strong);
-  line-height: 1;
-  margin-bottom: 10px;
+  width: 52px;
+  height: 52px;
+  display: block;
+  margin: 0 auto 14px;
+  border-radius: 15px;
+  opacity: 0.5;
 }
 
 .empty p {
