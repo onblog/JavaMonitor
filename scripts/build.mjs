@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url';
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const DIST = join(ROOT, 'dist');
 
-const ENTRIES = ['index.html', 'favicon.ico', 'src', 'wasm', 'assets'];
+const ENTRIES = ['index.html', 'favicon.ico', 'sitemap.xml', 'robots.txt', 'src', 'wasm', 'assets'];
 
 // 只给 README 用的资源，不进产物（screenshot 是官网截图，big-test 是本地压测样本）
 const EXCLUDE = new Set(['big-test.ttf', 'screenshot.png']);
