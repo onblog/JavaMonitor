@@ -1,0 +1,5 @@
+{
+  "outDir": "dist",
+  "html": ["dist/index.html"],
+  "pages": ["/"]
+}
