@@ -6,6 +6,18 @@
  */
 
 const WASM_URL = new URL('../../wasm/harfbuzz-subset.wasm', import.meta.url).href;
+// harfbuzz-subset.wasm 的 SHA-256，用于在加载前校验完整性，防止托管服务或构建产物被篡改
+const WASM_SHA256 = 'f8989b6c78493626b483d8e82dbfcdff38ac277f75f47a6ba440264dacdcedf1';
+
+async function verifyWasmIntegrity(bytes) {
+  const digest = await crypto.subtle.digest('SHA-256', bytes);
+  const hex = Array.from(new Uint8Array(digest))
+    .map((b) => b.toString(16).padStart(2, '0'))
+    .join('');
+  if (hex !== WASM_SHA256) {
+    throw new Error('harfbuzz wasm 完整性校验失败，文件可能已被篡改');
+  }
+}
 
 const HB_MEMORY_MODE_WRITABLE = 2;
 const HB_SUBSET_SETS_DROP_TABLE_TAG = 3;
@@ -31,6 +43,7 @@ export function loadHarfbuzz() {
         throw new Error(`无法加载 harfbuzz wasm（HTTP ${res.status}）`);
       }
       const bytes = await res.arrayBuffer();
+      await verifyWasmIntegrity(bytes);
       const { instance } = await WebAssembly.instantiate(bytes);
       const hb = instance.exports;
       if (typeof hb._initialize !== 'function') {
